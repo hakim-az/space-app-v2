@@ -1,4 +1,4 @@
-name: CI/CD for My React App
+name: CI/CD for My React App to gke
 
 on:
   push:

@@ -2,31 +2,36 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: space-app-v2-service
+  name: space-app-v3-service
 spec:
   type: LoadBalancer
   selector:
-    app: space-app-v2
+    app: space-app-v3
   ports:
-  - port: 80
-    targetPort: 80
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: space-app-v2-deployment
+  name: space-app-v3-deployment
   labels:
-    app: space-app-v2
+    app: space-app-v3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: space-app-v2
+      app: space-app-v3
   template:
     metadata:
       labels:
-        app: space-app-v2
+        app: space-app-v3
     spec:
       containers:
-      - name: space-app-v2
+      - name: space-app-v3
         image: us-central1-docker.pkg.dev/GOOGLE_PROJECT/space-app-v2/space-app-v2:latest
+        ports:
+        - containerPort: 3000
