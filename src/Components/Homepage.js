@@ -32,7 +32,7 @@ export default function Homepage(){
 
             {/* Homepage Button */}
             <button className="explore-btn">
-                Explore
+                Explore the space
             </button>
         
         </div>
