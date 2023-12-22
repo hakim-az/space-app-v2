@@ -23,8 +23,7 @@ jobs:
     - name: build and push the docker image
       env:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
-        run: |
-          gcloud auth configure-docker us-central1-docker.pkg.dev
-          docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/space-app-v2/space-app-v2:latest .
-          docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/space-app-v2/space-app-v2:latest
-
+      run: |
+        gcloud auth configure-docker us-central1-docker.pkg.dev
+        docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/space-app-v2/space-app-v2:latest .
+        docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/space-app-v2/space-app-v2:latest
